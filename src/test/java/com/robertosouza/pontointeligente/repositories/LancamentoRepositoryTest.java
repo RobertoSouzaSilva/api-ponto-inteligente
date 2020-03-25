@@ -31,7 +31,7 @@ import com.robertosouza.pontointeligente.utils.PasswordUtils;
 public class LancamentoRepositoryTest {
 	
 	@Autowired
-	private LancamentoRepository lancamentoRepository;
+	private LancamentoRepository lancamentoRepositoryy;
 	
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
@@ -48,8 +48,8 @@ public class LancamentoRepositoryTest {
 		Funcionario funcionario = this.funcionarioRepository.save(obterDadosFuncionario(empresa));
 		this.funcionarioId = funcionario.getId();
 		
-		this.lancamentoRepository.save(obterDadosLancamentos(funcionario));
-		this.lancamentoRepository.save(obterDadosLancamentos(funcionario));
+		this.lancamentoRepositoryy.save(obterDadosLancamentos(funcionario));
+		this.lancamentoRepositoryy.save(obterDadosLancamentos(funcionario));
 	}
 
 	@After
@@ -59,7 +59,7 @@ public class LancamentoRepositoryTest {
 
 	@Test
 	public void testBuscarLancamentosPorFuncionarioId() {
-		List<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId);
+		List<Lancamento> lancamentos = this.lancamentoRepositoryy.findByFuncionarioId(funcionarioId);
 		
 		assertEquals(2, lancamentos.size());
 	}
@@ -67,7 +67,7 @@ public class LancamentoRepositoryTest {
 	@Test
 	public void testBuscarLancamentosPorFuncionarioIdPaginado() {
 		PageRequest page = PageRequest.of(0, 10);
-		Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
+		Page<Lancamento> lancamentos = this.lancamentoRepositoryy.findByFuncionarioId(funcionarioId, page);
 		
 		assertEquals(2, lancamentos.getTotalElements());
 	}
