@@ -10,11 +10,11 @@ import com.robertosouza.pontointeligente.entities.Lancamento;
 public interface LancamentoService {
 
 	Page<Lancamento> buscaPorFuncionarioId(Long funcionarioId, PageRequest pageRequest);
-	
+
 	Optional<Lancamento> buscaPorId(Long id);
-	
+
 	Lancamento persistir(Lancamento lancamento);
-	
-	void Remover(Long id);
+
+	void remover(Long id);
 
 }
